@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup page</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function random() {
+            const username = document.getElementById("username").value
+            const password = document.getElementById("password").value
+            const name = document.getElementById("name").value
+            axios.post('http://localhost:3000/user/signup', { username, password, name}).then((res) => {
+                console.log(res)
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <input id="username" type="text" placeholder="username">
+    <input id="password" type="password" placeholder="password">
+    <input id="name" type="text" placeholder="name">
+    <button onclick="random()">Signup</button>
+</body>
+
+</html>
