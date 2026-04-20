@@ -1,3 +1,4 @@
+// trying functional argument in cpp
 #include<iostream>
 using namespace std;
 
