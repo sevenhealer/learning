@@ -43,12 +43,11 @@ class Promise2{
 
 function ownPromisifiedsetTimeout(){
     return new Promise2((resolve) => {
-        setTimeout(() => {
-            resolve();
-        }, 4000)
+        setTimeout(resolve, 4000)
     })
 }
 
 ownPromisifiedsetTimeout().then(() => {
     console.log("Own Promise Called")
 })
+
