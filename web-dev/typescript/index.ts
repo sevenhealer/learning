@@ -144,3 +144,51 @@ let personWithAddress: PersonWithAddress = {
 };
 
 personWithAddress.greet();
+
+
+//enum (only can be used in ts, virtual , assign 0,1,2,3... by default (Up, Down) or (Up = "up", Down = "down"))
+
+type KeyInput = "up" | "down" | "left" | "right";
+
+function doSomething(key: KeyInput){
+    if(key == "up"){
+        //......
+    }
+}
+
+enum ArrowKey {
+    Up = "up",
+    Down = "down", 
+    Left = "left",
+    Right = "right"
+}
+
+function doSomething1(key: ArrowKey){
+    if(key == ArrowKey.Up){
+        //......
+    }
+}
+
+//common example of enum
+enum ResponseStatus{
+    Success = 200,
+    NotFound = 404,
+    Error = 500
+}
+
+//Generics
+function firstEle(arr: (string | number)[]){
+    return arr[0];
+}
+
+const value = firstEle(['rohan', 'chatterjee'])
+// console.log(value.toUpperCase()) //error value can be number
+
+// function firstEle1<T>(arr: T[]): T | undefined{   //output can be undefined
+function firstEle1<T>(arr: [T, ...T[]]): T{          //doesnot accept empty array
+    return arr[0];
+}
+
+const value1 = firstEle1(['rohan', 'chatterjee']) //automatically detected string
+const value2 = firstEle1<string>(['rohan', 'chatterjee']) //or explictly tell its string
+console.log(value1.toUpperCase()) //error value can be number
